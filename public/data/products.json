@@ -1,0 +1,724 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Bluetooth Earbuds Pro",
+    "category": "Electronics",
+    "description": "Premium noise-cancelling wireless earbuds with 24-hour battery life, touch controls, and deep bass. IPX5 water resistant.",
+    "price": 49.99,
+    "quantity": 45,
+    "emoji": "\ud83c\udfa7",
+    "tags": [
+      "audio",
+      "wireless",
+      "bluetooth",
+      "earbuds",
+      "music",
+      "noise-cancelling"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Smart Fitness Watch",
+    "category": "Electronics",
+    "description": "Advanced fitness tracker with heart rate monitor, GPS, sleep tracking, and 7-day battery life. Water resistant to 50m.",
+    "price": 89.99,
+    "quantity": 30,
+    "emoji": "\u231a",
+    "tags": [
+      "wearable",
+      "fitness",
+      "smartwatch",
+      "health",
+      "gps",
+      "tracker"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "USB-C Charging Hub 7-in-1",
+    "category": "Electronics",
+    "description": "Multi-port USB-C hub with HDMI 4K, USB 3.0, SD card reader, and 100W power delivery.",
+    "price": 34.99,
+    "quantity": 60,
+    "emoji": "\ud83d\udd0c",
+    "tags": [
+      "usb",
+      "hub",
+      "charging",
+      "laptop",
+      "accessories",
+      "ports"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Portable Bluetooth Speaker",
+    "category": "Electronics",
+    "description": "Waterproof portable speaker with 360-degree sound, 12-hour playtime, and built-in microphone.",
+    "price": 29.99,
+    "quantity": 55,
+    "emoji": "\ud83d\udd0a",
+    "tags": [
+      "audio",
+      "speaker",
+      "bluetooth",
+      "portable",
+      "waterproof",
+      "music"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Mechanical Gaming Keyboard",
+    "category": "Electronics",
+    "description": "RGB backlit mechanical keyboard with Cherry MX switches, programmable macros, and aluminum frame.",
+    "price": 74.99,
+    "quantity": 25,
+    "emoji": "\u2328\ufe0f",
+    "tags": [
+      "keyboard",
+      "gaming",
+      "mechanical",
+      "rgb",
+      "computer",
+      "peripherals"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Wireless Ergonomic Mouse",
+    "category": "Electronics",
+    "description": "Ergonomic vertical wireless mouse with adjustable DPI, silent clicks, and rechargeable battery.",
+    "price": 24.99,
+    "quantity": 40,
+    "emoji": "\ud83d\uddb1\ufe0f",
+    "tags": [
+      "mouse",
+      "ergonomic",
+      "wireless",
+      "computer",
+      "peripherals",
+      "office"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "10000mAh Power Bank",
+    "category": "Electronics",
+    "description": "Slim portable charger with dual USB-C ports, fast charging support, and LED power indicator.",
+    "price": 19.99,
+    "quantity": 70,
+    "emoji": "\ud83d\udd0b",
+    "tags": [
+      "charger",
+      "portable",
+      "battery",
+      "power",
+      "usb",
+      "travel"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Noise Cancelling Headphones",
+    "category": "Electronics",
+    "description": "Over-ear wireless headphones with active noise cancellation, 30-hour battery, and premium memory foam.",
+    "price": 119.99,
+    "quantity": 20,
+    "emoji": "\ud83c\udfb5",
+    "tags": [
+      "audio",
+      "headphones",
+      "noise-cancelling",
+      "wireless",
+      "music",
+      "premium"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Classic Denim Jacket",
+    "category": "Clothing",
+    "description": "Timeless medium-wash denim jacket with button closure, chest pockets, and adjustable waist tabs.",
+    "price": 59.99,
+    "quantity": 35,
+    "emoji": "\ud83e\udde5",
+    "tags": [
+      "jacket",
+      "denim",
+      "casual",
+      "outerwear",
+      "fashion",
+      "unisex"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Running Performance Shoes",
+    "category": "Clothing",
+    "description": "Lightweight running shoes with responsive cushioning, breathable mesh upper, and non-slip rubber outsole.",
+    "price": 79.99,
+    "quantity": 40,
+    "emoji": "\ud83d\udc5f",
+    "tags": [
+      "shoes",
+      "running",
+      "athletic",
+      "sports",
+      "footwear",
+      "cushioning"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Premium Cotton T-Shirt",
+    "category": "Clothing",
+    "description": "Ultra-soft 100% organic cotton crew neck t-shirt. Pre-shrunk, breathable, and comfortable.",
+    "price": 18.99,
+    "quantity": 100,
+    "emoji": "\ud83d\udc55",
+    "tags": [
+      "tshirt",
+      "cotton",
+      "casual",
+      "basics",
+      "organic",
+      "comfortable"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Winter Thermal Hoodie",
+    "category": "Clothing",
+    "description": "Heavyweight fleece-lined hoodie with kangaroo pocket, adjustable drawstring hood, and ribbed cuffs.",
+    "price": 44.99,
+    "quantity": 50,
+    "emoji": "\ud83e\uddd5",
+    "tags": [
+      "hoodie",
+      "winter",
+      "fleece",
+      "warm",
+      "casual",
+      "outerwear"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Slim Fit Chino Pants",
+    "category": "Clothing",
+    "description": "Modern slim-fit chino pants with stretch fabric, flat front, and hidden flex waistband.",
+    "price": 39.99,
+    "quantity": 45,
+    "emoji": "\ud83d\udc56",
+    "tags": [
+      "pants",
+      "chino",
+      "slim-fit",
+      "formal",
+      "casual",
+      "stretch"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "UV Protection Sunglasses",
+    "category": "Clothing",
+    "description": "Polarized sunglasses with UV400 protection, lightweight titanium frame, and anti-scratch coating.",
+    "price": 29.99,
+    "quantity": 60,
+    "emoji": "\ud83d\udd76\ufe0f",
+    "tags": [
+      "sunglasses",
+      "uv-protection",
+      "polarized",
+      "fashion",
+      "accessories",
+      "summer"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Organic Single Origin Coffee",
+    "category": "Food & Beverages",
+    "description": "Premium Ethiopian single-origin coffee beans. Medium roast with notes of blueberry and dark chocolate.",
+    "price": 14.99,
+    "quantity": 80,
+    "emoji": "\u2615",
+    "tags": [
+      "coffee",
+      "organic",
+      "beans",
+      "ethiopian",
+      "medium-roast",
+      "premium"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Japanese Matcha Green Tea",
+    "category": "Food & Beverages",
+    "description": "Ceremonial grade matcha powder from Uji, Japan. Rich in antioxidants, smooth taste.",
+    "price": 22.99,
+    "quantity": 40,
+    "emoji": "\ud83c\udf75",
+    "tags": [
+      "tea",
+      "matcha",
+      "green-tea",
+      "japanese",
+      "antioxidants",
+      "healthy"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "High Protein Energy Bars",
+    "category": "Food & Beverages",
+    "description": "Plant-based protein bars with 20g protein each. Peanut butter chocolate flavor, no artificial sweeteners.",
+    "price": 24.99,
+    "quantity": 65,
+    "emoji": "\ud83c\udf6b",
+    "tags": [
+      "protein",
+      "energy",
+      "snack",
+      "healthy",
+      "fitness",
+      "plant-based"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Artisan Dark Chocolate Collection",
+    "category": "Food & Beverages",
+    "description": "Handcrafted dark chocolate assortment with 70% cacao. Sea salt, almond, and espresso varieties.",
+    "price": 18.99,
+    "quantity": 50,
+    "emoji": "\ud83e\udd0e",
+    "tags": [
+      "chocolate",
+      "dark",
+      "artisan",
+      "gourmet",
+      "gift",
+      "premium"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Cold Pressed Juice Variety Pack",
+    "category": "Food & Beverages",
+    "description": "6-pack of organic cold-pressed juices. Green detox, citrus burst, and berry blend flavors.",
+    "price": 29.99,
+    "quantity": 30,
+    "emoji": "\ud83e\uddc3",
+    "tags": [
+      "juice",
+      "organic",
+      "cold-pressed",
+      "healthy",
+      "detox",
+      "vitamins"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Python Crash Course",
+    "category": "Books",
+    "description": "Bestselling hands-on introduction to Python programming. Covers fundamentals through real-world projects.",
+    "price": 29.99,
+    "quantity": 25,
+    "emoji": "\ud83d\udcd8",
+    "tags": [
+      "python",
+      "programming",
+      "coding",
+      "beginner",
+      "education",
+      "tech"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Clean Code by Robert Martin",
+    "category": "Books",
+    "description": "Essential guide to writing readable, maintainable code. Covers naming, functions, and refactoring.",
+    "price": 34.99,
+    "quantity": 20,
+    "emoji": "\ud83d\udcd7",
+    "tags": [
+      "programming",
+      "software-engineering",
+      "best-practices",
+      "coding",
+      "clean-code"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "AI & Machine Learning Handbook",
+    "category": "Books",
+    "description": "Comprehensive guide to AI and machine learning. Covers neural networks, NLP, embeddings, and recommendation systems.",
+    "price": 39.99,
+    "quantity": 15,
+    "emoji": "\ud83d\udcd5",
+    "tags": [
+      "ai",
+      "machine-learning",
+      "neural-networks",
+      "deep-learning",
+      "nlp",
+      "data-science"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Design Patterns (Gang of Four)",
+    "category": "Books",
+    "description": "Classic software design patterns reference. Creational, structural, and behavioral patterns.",
+    "price": 44.99,
+    "quantity": 18,
+    "emoji": "\ud83d\udcd9",
+    "tags": [
+      "design-patterns",
+      "software",
+      "architecture",
+      "oop",
+      "programming",
+      "reference"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "The Art of Problem Solving",
+    "category": "Books",
+    "description": "Mathematical problem solving strategies. Covers algebra, combinatorics, and number theory.",
+    "price": 27.99,
+    "quantity": 22,
+    "emoji": "\ud83d\udcd3",
+    "tags": [
+      "math",
+      "problem-solving",
+      "algorithms",
+      "competition",
+      "education",
+      "logic"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "LED Smart Desk Lamp",
+    "category": "Home & Kitchen",
+    "description": "Adjustable LED desk lamp with 5 brightness levels, 3 color temperatures, and USB charging port.",
+    "price": 32.99,
+    "quantity": 35,
+    "emoji": "\ud83d\udca1",
+    "tags": [
+      "lamp",
+      "led",
+      "desk",
+      "lighting",
+      "smart",
+      "office"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Programmable Coffee Maker",
+    "category": "Home & Kitchen",
+    "description": "12-cup programmable drip coffee maker with built-in grinder, auto-start timer, and thermal carafe.",
+    "price": 69.99,
+    "quantity": 20,
+    "emoji": "\ud83d\udcf1\ud83e\uded8",
+    "tags": [
+      "coffee",
+      "maker",
+      "kitchen",
+      "appliance",
+      "programmable",
+      "brewing"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Minimalist Ceramic Plant Pot",
+    "category": "Home & Kitchen",
+    "description": "Modern matte ceramic planter with bamboo saucer. Perfect for succulents and small indoor plants.",
+    "price": 16.99,
+    "quantity": 50,
+    "emoji": "\ud83e\udeb4",
+    "tags": [
+      "plant",
+      "ceramic",
+      "home-decor",
+      "minimalist",
+      "garden",
+      "indoor"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Digital Wall Clock",
+    "category": "Home & Kitchen",
+    "description": "Large LED digital wall clock with temperature display, auto-dimming, and alarm function.",
+    "price": 24.99,
+    "quantity": 30,
+    "emoji": "\ud83d\udd50",
+    "tags": [
+      "clock",
+      "digital",
+      "led",
+      "wall",
+      "home-decor",
+      "modern"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Premium Yoga Mat",
+    "category": "Sports & Fitness",
+    "description": "Extra thick 6mm non-slip yoga mat with alignment lines, carrying strap, and eco-friendly TPE material.",
+    "price": 34.99,
+    "quantity": 40,
+    "emoji": "\ud83e\udd53",
+    "tags": [
+      "yoga",
+      "mat",
+      "fitness",
+      "exercise",
+      "non-slip",
+      "eco-friendly"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Resistance Bands Set",
+    "category": "Sports & Fitness",
+    "description": "Set of 5 resistance bands with varying tension levels. Includes door anchor, handles, and ankle straps.",
+    "price": 19.99,
+    "quantity": 55,
+    "emoji": "\ud83d\udcaa",
+    "tags": [
+      "resistance",
+      "bands",
+      "workout",
+      "fitness",
+      "strength",
+      "home-gym"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Insulated Sports Water Bottle",
+    "category": "Sports & Fitness",
+    "description": "32oz double-wall vacuum insulated stainless steel water bottle. Keeps drinks cold 24hrs or hot 12hrs.",
+    "price": 22.99,
+    "quantity": 70,
+    "emoji": "\ud83e\udd64",
+    "tags": [
+      "water-bottle",
+      "insulated",
+      "sports",
+      "stainless-steel",
+      "hydration",
+      "gym"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Speed Jump Rope",
+    "category": "Sports & Fitness",
+    "description": "Weighted speed jump rope with ball bearings, adjustable cable length, and foam grip handles.",
+    "price": 12.99,
+    "quantity": 45,
+    "emoji": "\ud80c\udc2a",
+    "tags": [
+      "jump-rope",
+      "cardio",
+      "fitness",
+      "speed",
+      "workout",
+      "training"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Classic Cigarettes",
+    "category": "Miscellaneous",
+    "description": "A pack of quality cigarettes.",
+    "price": 8.99,
+    "quantity": 100,
+    "tags": [
+      "tobacco",
+      "smoke"
+    ],
+    "emoji": "\ud83d\udeac"
+  },
+  {
+    "id": 34,
+    "name": "Refillable Lighter",
+    "category": "Miscellaneous",
+    "description": "A high-quality metal refillable lighter.",
+    "price": 3.99,
+    "quantity": 150,
+    "tags": [
+      "fire",
+      "accessories"
+    ],
+    "emoji": "\ud83d\udd6f\ufe0f\ud83d\udd25\ud83d\udeac"
+  },
+  {
+    "id": 35,
+    "name": "Centerfresh Chewing Gum",
+    "category": "Food & Beverages",
+    "description": "Mint flavored liquid-filled chewing gum for fresh breath.",
+    "price": 1.49,
+    "quantity": 200,
+    "tags": [
+      "gum",
+      "mint",
+      "fresh"
+    ],
+    "emoji": "\ud83c\udf6c"
+  },
+  {
+    "id": 36,
+    "name": "Glass Ashtray",
+    "category": "Miscellaneous",
+    "description": "A heavy, classic clear glass ashtray with four cigar rests.",
+    "price": 5.99,
+    "quantity": 80,
+    "tags": [
+      "tobacco",
+      "smoke",
+      "ash",
+      "accessories"
+    ],
+    "emoji": "\u2668"
+  },
+  {
+    "id": 37,
+    "name": "Safety Matches",
+    "category": "Miscellaneous",
+    "description": "A box of premium wooden safety matches. Easy to strike.",
+    "price": 0.99,
+    "quantity": 300,
+    "tags": [
+      "fire",
+      "smoke",
+      "accessories"
+    ],
+    "emoji": "\ud83e\udd62"
+  },
+  {
+    "id": 38,
+    "name": "Rolling Papers",
+    "category": "Miscellaneous",
+    "description": "Natural unrefined rolling papers. Smooth burning.",
+    "price": 2.49,
+    "quantity": 150,
+    "tags": [
+      "tobacco",
+      "smoke",
+      "paper"
+    ],
+    "emoji": "\ud83d\uddde\ufe0f"
+  },
+  {
+    "id": 40,
+    "name": "Original Milk",
+    "category": "Food & Beverages",
+    "description": "Rich and creamy pasteurized cow/buffalo milk (3.25% - 6%+ fat) providing a full-bodied taste and high-density nutrition. Ideal for direct consumption, children, tea/coffee, and desserts.",
+    "price": 15,
+    "quantity": 50,
+    "emoji": "\ud83e\udd5b",
+    "tags": []
+  },
+  {
+    "id": 41,
+    "name": "Bread",
+    "category": "Food & Beverages",
+    "description": "A rustic, crackly-crusted sourdough with a chewy, airy, and open crumb. It features a distinct tangy flavor developed through a 24-hour fermentation process.",
+    "price": 20,
+    "quantity": 80,
+    "emoji": "\ud83c\udf5e",
+    "tags": []
+  },
+  {
+    "id": 42,
+    "name": "Butter ",
+    "category": "Food & Beverages",
+    "description": "Elevate your meals with the rich, authentic taste of our Premium Salted Butter. Made from pure cream, this smooth, melt-in-your-mouth butter is the perfect partner for your morning toast, parathas, or adding savory depth to your dals and soups. 100% natural, no preservatives added.",
+    "price": 15,
+    "quantity": 59,
+    "emoji": "\ud83e\uddc8",
+    "tags": [
+      "milk product",
+      "bread"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Room Freshener",
+    "category": "Home & Kitchen",
+    "description": "A manual aerosol spray designed for instant odor removal, lasting up to 3\u20134 hours per spray cycle.",
+    "price": 38.99,
+    "quantity": 99,
+    "emoji": "\ud83c\udf38",
+    "tags": [
+      "room",
+      "perfume",
+      "odour",
+      "deoderant",
+      "cosmetic"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Perfume Fragrance",
+    "category": "Home & Kitchen",
+    "description": "A fragrance is designed to linger, providing enduring sophistication that holds its own for hours.",
+    "price": 49.99,
+    "quantity": 80,
+    "emoji": "\ud83c\udf39",
+    "tags": [
+      "perfume",
+      "fragrance",
+      "odour",
+      "deoderant",
+      "party"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Deodrant",
+    "category": "Home & Kitchen",
+    "description": "Elevate your daily routine with Ocean Breeze Advanced Protection Deodorant, designed for maximum odor control and long-lasting freshness. Formulated to keep you dry without harsh chemicals, this formula provides 48-hour confidence to keep up with your active lifestyle.",
+    "price": 50,
+    "quantity": 90,
+    "emoji": "\ud83c\udf37",
+    "tags": [
+      "odour",
+      "fresh",
+      "smell",
+      "fragnance"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Charcoal-Turmeric Facewash",
+    "category": "Home & Kitchen",
+    "description": "Enriched with activated charcoal and turmeric, this Facewash purifies and refreshes both men's and women's skin, leaving it soft and smooth. It is formulated to remove dirt, excess oil, and pollution.",
+    "price": 300.0,
+    "quantity": 119,
+    "emoji": "\ud83e\uddfc",
+    "tags": [
+      "Facewash",
+      "cosmetics",
+      "hygiene",
+      "fresh",
+      "clean"
+    ]
+  }
+]
