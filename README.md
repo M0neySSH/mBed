@@ -1,4 +1,4 @@
-<div align="center">
+<img width="1845" height="893" alt="image" src="https://github.com/user-attachments/assets/e837260f-5995-4dfe-be47-fec92ddc6d51" /><div align="center">
   <h1>🛒 DemoKART 2.0</h1>
   <p><strong>AI-Powered E-Commerce with Neural Embedding Recommendations</strong></p>
 
@@ -30,13 +30,13 @@ DemoKART 2.0 is a modern, full-stack E-Commerce platform that implements a produ
 *(Replace these placeholders with your actual screenshots by dragging and dropping your images directly into the GitHub editor!)*
 
 ### Home Page & Recommendations
-![Home Page Screenshot Placeholder](https://via.placeholder.com/800x400.png?text=Drag+and+drop+your+Home+Page+screenshot+here)
+<img width="1845" height="893" alt="image" src="https://github.com/user-attachments/assets/e4958adb-e2cf-4360-ac7e-d68e95b1b305" />
 
 ### AI-Powered Product Detail
-![Product Screenshot Placeholder](https://via.placeholder.com/800x400.png?text=Drag+and+drop+your+Product+Page+screenshot+here)
+<img width="1129" height="765" alt="image" src="https://github.com/user-attachments/assets/90b17276-71d2-4bd5-baa8-6504de728797" />
 
 ### Admin Dashboard
-![Admin Screenshot Placeholder](https://via.placeholder.com/800x400.png?text=Drag+and+drop+your+Admin+Dashboard+screenshot+here)
+<img width="1859" height="876" alt="image" src="https://github.com/user-attachments/assets/bf84ff8f-926c-453d-9c47-a72baae01e45" />
 
 ---
 
