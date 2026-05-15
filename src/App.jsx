@@ -122,7 +122,7 @@ function Footer() {
     <footer className="footer">
       <p>🛒 DemoKART 2.0 — AI-Powered Shopping with Embedding-Based Recommendations</p>
       <p style={{ marginTop: '.3rem' }}>
-        Built with ❤️ by <a href="https://github.com/M0neySSH" target="_blank" rel="noreferrer">Manish</a> | Artificial Intelligence Project
+        Built with ❤️ by <a href="https://github.com/M0neySSH" target="_blank" rel="noreferrer" style={{ color: '#007bff', textDecoration: 'none', fontWeight: '600' }}>Manish</a> | Artificial Intelligence Project
       </p>
     </footer>
   );
