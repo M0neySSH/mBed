@@ -26,6 +26,7 @@ export default function Navbar() {
         <li><Link to="/" className={active('/')}>Home</Link></li>
         <li><Link to="/shop" className={active('/shop')}>Shop</Link></li>
         <li><Link to="/recommendations" className={active('/recommendations')}>AI Picks</Link></li>
+        <li><Link to="/neural-lab" className={active('/neural-lab')}>Neural Lab</Link></li>
         <li><Link to="/admin" className={active('/admin')}>Admin</Link></li>
         <li><Link to="/sales" className={active('/sales')}>Sales</Link></li>
       </ul>

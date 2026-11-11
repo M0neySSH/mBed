@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import Admin from './pages/Admin';
 import Sales from './pages/Sales';
 import Checkout from './pages/Checkout';
+import NeuralSimulator from './pages/NeuralSimulator';
 import './index.css';
 
 export const AppContext = createContext();
@@ -33,19 +34,38 @@ function AppProvider({ children }) {
   useEffect(() => {
     async function init() {
       try {
-        const [prodRes, embRes] = await Promise.all([
-          fetch(`${API_URL}/api/products`),
-          fetch(`${API_URL}/api/embeddings`).catch(() => null),
-        ]);
-        const prods = await prodRes.json();
+        let prods = null;
         let embData = null;
-        if (embRes && embRes.ok) embData = await embRes.json();
 
-        setProducts(prods);
-        store.seedDemoData();
+        try {
+          const [prodRes, embRes] = await Promise.all([
+            fetch(`${API_URL}/api/products`),
+            fetch(`${API_URL}/api/embeddings`).catch(() => null),
+          ]);
+          if (prodRes && prodRes.ok) {
+            prods = await prodRes.json();
+            if (embRes && embRes.ok) embData = await embRes.json();
+          }
+        } catch {
+          // Backend not running; fall back to static JSON data
+        }
 
-        const rec = new RecommendationEngine(prods, embData);
-        setEngine(rec);
+        if (!prods) {
+          const [fallbackProdRes, fallbackEmbRes] = await Promise.all([
+            fetch('/data/products.json'),
+            fetch('/data/embeddings.json').catch(() => null),
+          ]);
+          if (fallbackProdRes.ok) prods = await fallbackProdRes.json();
+          if (fallbackEmbRes && fallbackEmbRes.ok) embData = await fallbackEmbRes.json();
+        }
+
+        if (prods) {
+          setProducts(prods);
+          store.seedDemoData();
+
+          const rec = new RecommendationEngine(prods, embData);
+          setEngine(rec);
+        }
       } catch (e) {
         console.error('Init error:', e);
       }
@@ -138,6 +158,7 @@ function AppContent() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/recommendations" element={<Recommendations />} />
+        <Route path="/neural-lab" element={<NeuralSimulator />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<Admin />} />

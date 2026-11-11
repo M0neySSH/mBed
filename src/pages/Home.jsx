@@ -16,7 +16,8 @@ export default function Home() {
         <h1>Inspiration for smarter shopping</h1>
         <p>DemoKART 2.0 uses neural embeddings and cosine similarity to understand what you love — and recommend products that match your taste perfectly.</p>
         <div className="hero-actions">
-          <Link to="/shop" className="btn btn-primary btn-lg">Browse Shop</Link>
+          <Link to="/neural-lab" className="btn btn-primary btn-lg">Explore Neural Lab</Link>
+          <Link to="/shop" className="btn btn-secondary btn-lg">Browse Shop</Link>
           <Link to="/recommendations" className="btn btn-secondary btn-lg">See AI Picks</Link>
         </div>
       </section>

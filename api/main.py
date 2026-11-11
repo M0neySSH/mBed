@@ -164,6 +164,19 @@ def get_embeddings(db = Depends(get_db)):
         "items": items
     }
 
+@app.get("/api/embed-query")
+def embed_query(q: str = ""):
+    cleaned = q.strip()
+    if not cleaned:
+        raise HTTPException(status_code=400, detail="Query parameter 'q' cannot be empty")
+    vector = model.encode([cleaned])[0].tolist()
+    return {
+        "query": cleaned,
+        "model": "all-MiniLM-L6-v2",
+        "dimension": len(vector),
+        "vector": vector
+    }
+
 @app.post("/api/products")
 def add_product(product: Product, db = Depends(get_db)):
     prod_dict = product.model_dump()

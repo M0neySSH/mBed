@@ -706,3 +706,116 @@ button {
   .cart-item { flex-direction: column; text-align: center; }
   .section { padding: var(--sp-xxl) var(--sp-base); }
 }
+
+/* NEURAL SIMULATOR LAB */
+.lab-grid-2 {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--sp-lg);
+  align-items: start;
+}
+.lab-card {
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: var(--sp-lg);
+}
+.lab-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-base);
+  margin-bottom: var(--sp-xl);
+}
+.lab-step {
+  background: var(--surface-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: var(--sp-base);
+  position: relative;
+}
+.lab-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--r-full);
+  background: var(--ink);
+  color: var(--canvas);
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+.vec-heatmap {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: 2px;
+  padding: 8px;
+  background: var(--surface-soft);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--hairline-soft);
+}
+.vec-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 2px;
+  transition: transform 0.1s ease;
+}
+.vec-cell:hover {
+  transform: scale(1.6);
+  z-index: 2;
+  outline: 1px solid var(--ink);
+}
+.lab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--hairline);
+  background: var(--canvas);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ease);
+}
+.lab-pill:hover {
+  border-color: var(--ink);
+}
+.lab-pill.active {
+  background: var(--ink);
+  color: var(--canvas);
+  border-color: var(--ink);
+}
+.layer-bar-track {
+  display: flex;
+  height: 10px;
+  width: 100%;
+  background: var(--surface-strong);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+.lab-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.lab-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary);
+}
+.lab-map-wrap {
+  width: 100%;
+  background: radial-gradient(circle at 50% 50%, #fafafa 0%, #f3f4f6 100%);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+}
+@media(max-width: 960px) {
+  .lab-grid-2 { grid-template-columns: 1fr; }
+  .lab-pipeline { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width: 600px) {
+  .lab-pipeline { grid-template-columns: 1fr; }
+}
