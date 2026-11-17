@@ -906,6 +906,178 @@ class RecommendationEngine {
       anchorProduct,
     };
   }
+
+  // ═══════════ Cold-Start Recommendations (Overall Purchases + Embedding Neighbors) ═══════════
+  getColdStartRecommendations(allPurchases = [], topN = 8) {
+    const freq = {};
+    let totalUnitsSold = 0;
+    (allPurchases || []).forEach(p => {
+      (p.items || []).forEach(item => {
+        const qty = item.qty || 1;
+        freq[item.productId] = (freq[item.productId] || 0) + qty;
+        totalUnitsSold += qty;
+      });
+    });
+
+    const maxSales = Math.max(1, ...Object.values(freq));
+    const purchasedProducts = this.products
+      .filter(p => freq[p.id] > 0)
+      .map(p => ({
+        product: p,
+        salesCount: freq[p.id],
+        popularityScore: freq[p.id] / maxSales,
+      }))
+      .sort((a, b) => b.salesCount - a.salesCount);
+
+    // Compute Global Market Demand Vector (sales-weighted centroid in 384-D)
+    const dim = this.modelInfo.dimensions || 384;
+    const marketVector = new Float64Array(dim);
+    let marketWeightSum = 0;
+
+    purchasedProducts.forEach(({ product, salesCount }) => {
+      const emb = this.embeddings[String(product.id)];
+      if (emb) {
+        for (let i = 0; i < dim; i++) marketVector[i] += emb[i] * salesCount;
+        marketWeightSum += salesCount;
+      }
+    });
+
+    if (marketWeightSum > 0) {
+      let norm = 0;
+      for (let i = 0; i < dim; i++) norm += marketVector[i] * marketVector[i];
+      norm = Math.sqrt(norm);
+      if (norm > 0) for (let i = 0; i < dim; i++) marketVector[i] /= norm;
+    }
+
+    // Top bestsellers (up to top 4 as semantic anchors)
+    const topBestsellerAnchors = purchasedProducts.slice(0, 4).map(b => b.product);
+    const topBestsellerIdSet = new Set(topBestsellerAnchors.map(p => p.id));
+
+    // Calculate embedding proximity for all catalog items relative to the top bestsellers
+    const neighborMap = new Map();
+    this.products.forEach(p => {
+      const emb = this.embeddings[String(p.id)];
+      if (!emb) return;
+
+      // Find highest similarity to any top bestseller
+      let bestAnchor = null;
+      let maxAnchorSim = -1;
+
+      topBestsellerAnchors.forEach(b => {
+        if (b.id === p.id) return;
+        const bEmb = this.embeddings[String(b.id)];
+        if (bEmb) {
+          const sim = this._cosineSimilarity(bEmb, emb);
+          if (sim > maxAnchorSim) {
+            maxAnchorSim = sim;
+            bestAnchor = b;
+          }
+        }
+      });
+
+      // Similarity to the overall market vector
+      const marketSim = marketWeightSum > 0 ? this._cosineSimilarity(marketVector, emb) : 0;
+
+      neighborMap.set(p.id, {
+        product: p,
+        bestAnchor,
+        anchorSim: Math.max(0, maxAnchorSim),
+        marketSim: Math.max(0, marketSim),
+      });
+    });
+
+    // 1. Top Purchased list (Direct Bestsellers across all buyers)
+    const topPurchased = purchasedProducts.slice(0, topN).map((item, idx) => ({
+      product: item.product,
+      score: item.popularityScore,
+      matchPercent: Math.round(item.popularityScore * 100),
+      salesCount: item.salesCount,
+      badge: `🔥 #${idx + 1} Bestseller (${item.salesCount} sold)`,
+      reason: `High platform demand: bought ${item.salesCount} time${item.salesCount > 1 ? 's' : ''} across all buyers`,
+      type: 'bestseller',
+    }));
+
+    // 2. Embedding Neighbors list (Items closest in 384-D space to top purchases, excluding top bestsellers)
+    const embeddingNeighbors = [...neighborMap.values()]
+      .filter(entry => !topBestsellerIdSet.has(entry.product.id) && entry.bestAnchor)
+      .map(entry => {
+        const cos = Math.min(entry.anchorSim, 1);
+        const angleDeg = (Math.acos(Math.max(-1, Math.min(1, cos))) * 180) / Math.PI;
+        const sameCat = entry.bestAnchor && entry.product.category === entry.bestAnchor.category;
+        const adjusted = sameCat ? Math.min(cos * 1.1, 1) : cos;
+        return {
+          product: entry.product,
+          score: adjusted,
+          matchPercent: Math.round(adjusted * 100),
+          angleDeg,
+          anchorProduct: entry.bestAnchor,
+          salesCount: freq[entry.product.id] || 0,
+          badge: `🧬 ${Math.round(adjusted * 100)}% Neural Match`,
+          reason: `Close 384-D embedding to bestseller "${entry.bestAnchor.name}" (θ = ${angleDeg.toFixed(1)}°)`,
+          type: 'neural-neighbor',
+        };
+      })
+      .sort((a, b) => b.score - a.score)
+      .slice(0, topN);
+
+    // 3. Hybrid Cold-Start (Blended: 45% Sales Volume + 40% Nearest Bestseller Embedding + 15% Market Vector)
+    const hybridScored = this.products.map(p => {
+      const sales = freq[p.id] || 0;
+      const popScore = maxSales > 0 ? sales / maxSales : 0;
+      const nInfo = neighborMap.get(p.id) || { anchorSim: 0, marketSim: 0, bestAnchor: null };
+      const isTopBestseller = topBestsellerIdSet.has(p.id);
+
+      const combinedScore = isTopBestseller
+        ? 0.65 * popScore + 0.35 * nInfo.marketSim
+        : 0.30 * popScore + 0.50 * nInfo.anchorSim + 0.20 * nInfo.marketSim;
+
+      const matchPercent = Math.round(Math.min(combinedScore, 1) * 100);
+      let badge;
+      let reason;
+
+      if (sales > 0 && popScore >= 0.5) {
+        badge = `🔥 Top Seller (${sales} bought)`;
+        reason = `Top demand across all buyers (${sales} units sold)`;
+      } else if (nInfo.bestAnchor) {
+        const angle = (Math.acos(Math.max(-1, Math.min(1, nInfo.anchorSim))) * 180) / Math.PI;
+        badge = `🧬 ${matchPercent}% AI Affinity`;
+        reason = `Semantic neighbor to popular "${nInfo.bestAnchor.name}" (θ = ${angle.toFixed(0)}°)`;
+      } else {
+        badge = `✨ Featured`;
+        reason = `Popular in ${p.category}`;
+      }
+
+      return {
+        product: p,
+        score: combinedScore,
+        matchPercent,
+        salesCount: sales,
+        anchorProduct: nInfo.bestAnchor,
+        badge,
+        reason,
+        type: isTopBestseller ? 'bestseller' : 'hybrid',
+      };
+    });
+
+    const hybrid = hybridScored
+      .sort((a, b) => b.score - a.score)
+      .slice(0, topN);
+
+    const uniqueBuyers = new Set((allPurchases || []).map(p => p.userId)).size;
+
+    return {
+      hybrid,
+      topPurchased,
+      embeddingNeighbors,
+      marketVector,
+      stats: {
+        totalOrders: (allPurchases || []).length,
+        totalUnitsSold,
+        uniqueBuyers,
+        topBestsellerNames: topBestsellerAnchors.map(p => p.name),
+      },
+    };
+  }
 }
 
 export default RecommendationEngine;

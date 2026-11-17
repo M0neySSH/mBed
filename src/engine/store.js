@@ -88,18 +88,36 @@ const store = {
 
   // Seed demo data
   seedDemoData: () => {
-    if (store.getAllUsers().length > 0) return;
-    const users = [
-      { unique_id: 'DEMO01', name: 'Alice Johnson', email: 'alice@demo.com', phone: '9876543210', address: '123 Tech St' },
-      { unique_id: 'DEMO02', name: 'Bob Smith', email: 'bob@demo.com', phone: '9876543211', address: '456 Fashion Ave' },
-      { unique_id: 'DEMO03', name: 'Carol Lee', email: 'carol@demo.com', phone: '9876543212', address: '789 Book Lane' },
-    ];
-    users.forEach(u => store.addUser(u));
-    store.addPurchase({ id: 'R001', userId: 'DEMO01', userName: 'Alice Johnson', date: '2026-05-01T10:00:00Z', items: [{ productId: 1, name: 'Wireless Bluetooth Earbuds Pro', price: 49.99, qty: 1 }, { productId: 5, name: 'Mechanical Gaming Keyboard', price: 74.99, qty: 1 }], total: 124.98 });
-    store.addPurchase({ id: 'R002', userId: 'DEMO01', userName: 'Alice Johnson', date: '2026-05-03T14:00:00Z', items: [{ productId: 8, name: 'Noise Cancelling Headphones', price: 119.99, qty: 1 }], total: 119.99 });
-    store.addPurchase({ id: 'R003', userId: 'DEMO02', userName: 'Bob Smith', date: '2026-05-02T09:00:00Z', items: [{ productId: 9, name: 'Classic Denim Jacket', price: 59.99, qty: 1 }, { productId: 10, name: 'Running Performance Shoes', price: 79.99, qty: 1 }], total: 139.98 });
-    store.addPurchase({ id: 'R004', userId: 'DEMO03', userName: 'Carol Lee', date: '2026-05-04T16:00:00Z', items: [{ productId: 20, name: 'Python Crash Course', price: 29.99, qty: 1 }, { productId: 22, name: 'AI & ML Handbook', price: 39.99, qty: 1 }], total: 69.98 });
-    [['DEMO01',1,5],['DEMO01',5,4],['DEMO01',8,5],['DEMO02',9,4],['DEMO02',10,5],['DEMO03',20,5],['DEMO03',22,4]].forEach(([u,p,r]) => store.rateItem(u,p,r));
+    const existingUsers = store.getAllUsers();
+    if (existingUsers.length < 4) {
+      const demoUsers = [
+        { unique_id: 'DEMO01', name: 'Alice Johnson', email: 'alice@demo.com', phone: '9876543210', address: '123 Tech St' },
+        { unique_id: 'DEMO02', name: 'Bob Smith', email: 'bob@demo.com', phone: '9876543211', address: '456 Fashion Ave' },
+        { unique_id: 'DEMO03', name: 'Carol Lee', email: 'carol@demo.com', phone: '9876543212', address: '789 Book Lane' },
+        { unique_id: 'DEMO04', name: 'David Patel', email: 'david@demo.com', phone: '9876543213', address: '101 Market Rd' },
+        { unique_id: 'DEMO05', name: 'Emma Watson', email: 'emma@demo.com', phone: '9876543214', address: '202 Fitness Blvd' },
+      ];
+      demoUsers.forEach(u => {
+        if (!store.findUser(u.unique_id)) store.addUser(u);
+      });
+    }
+
+    const existingPurchases = store.getAllPurchases();
+    if (existingPurchases.length < 6) {
+      const demoOrders = [
+        { id: 'R001', userId: 'DEMO01', userName: 'Alice Johnson', date: '2026-05-01T10:00:00Z', items: [{ productId: 1, name: 'Wireless Bluetooth Earbuds Pro', price: 49.99, qty: 2 }, { productId: 5, name: 'Mechanical Gaming Keyboard', price: 74.99, qty: 1 }], total: 174.97 },
+        { id: 'R002', userId: 'DEMO01', userName: 'Alice Johnson', date: '2026-05-03T14:00:00Z', items: [{ productId: 8, name: 'Noise Cancelling Headphones', price: 119.99, qty: 1 }], total: 119.99 },
+        { id: 'R003', userId: 'DEMO02', userName: 'Bob Smith', date: '2026-05-02T09:00:00Z', items: [{ productId: 9, name: 'Classic Denim Jacket', price: 59.99, qty: 1 }, { productId: 10, name: 'Running Performance Shoes', price: 79.99, qty: 2 }], total: 219.97 },
+        { id: 'R004', userId: 'DEMO03', userName: 'Carol Lee', date: '2026-05-04T16:00:00Z', items: [{ productId: 20, name: 'Python Crash Course', price: 29.99, qty: 1 }, { productId: 22, name: 'AI & ML Handbook', price: 39.99, qty: 1 }], total: 69.98 },
+        { id: 'R005', userId: 'DEMO04', userName: 'David Patel', date: '2026-05-05T11:00:00Z', items: [{ productId: 40, name: 'Original Milk', price: 15.00, qty: 6 }, { productId: 41, name: 'Bread', price: 20.00, qty: 5 }, { productId: 42, name: 'Butter', price: 15.00, qty: 4 }], total: 250.00 },
+        { id: 'R006', userId: 'DEMO04', userName: 'David Patel', date: '2026-05-06T15:00:00Z', items: [{ productId: 15, name: 'Organic Single Origin Coffee', price: 14.99, qty: 4 }, { productId: 29, name: 'Premium Yoga Mat', price: 34.99, qty: 1 }, { productId: 31, name: 'Insulated Sports Water Bottle', price: 22.99, qty: 3 }], total: 163.93 },
+        { id: 'R007', userId: 'DEMO05', userName: 'Emma Watson', date: '2026-05-07T12:00:00Z', items: [{ productId: 2, name: 'Smart Fitness Watch', price: 89.99, qty: 2 }, { productId: 17, name: 'High Protein Energy Bars', price: 24.99, qty: 4 }], total: 279.94 },
+      ];
+      demoOrders.forEach(o => {
+        if (!existingPurchases.some(p => p.id === o.id)) store.addPurchase(o);
+      });
+      [['DEMO01',1,5],['DEMO01',5,4],['DEMO01',8,5],['DEMO02',9,4],['DEMO02',10,5],['DEMO03',20,5],['DEMO03',22,4],['DEMO04',40,5],['DEMO04',41,5],['DEMO04',15,5],['DEMO05',2,5],['DEMO05',17,5]].forEach(([u,p,r]) => store.rateItem(u,p,r));
+    }
   },
 };
 

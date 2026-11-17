@@ -1,11 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import store from '../engine/store';
 
-function getCatClass(category) {
-  const c = category.toLowerCase().replace(/[^a-z]/g, '').replace('beverages', 'food');
-  return 'cat-' + c;
-}
-
 export function SimilarityBar({ label = 'AI Match', percent }) {
   return (
     <div className="sim-wrap">
@@ -28,7 +23,7 @@ export function StarRating({ rating, interactive = false, onRate }) {
   );
 }
 
-export function ProductCard({ product, similarity = null }) {
+export function ProductCard({ product, similarity = null, badge = null, reason = null, onAddToCart = null }) {
   const navigate = useNavigate();
   const avgRating = store.getItemAvgRating(product.id);
 
@@ -40,6 +35,11 @@ export function ProductCard({ product, similarity = null }) {
         ) : (
           <span className="product-card-img">{product.emoji}</span>
         )}
+        {badge && (
+          <div style={{ position: 'absolute', top: 12, left: 12, background: 'var(--ink)', color: '#fff', padding: '3px 8px', borderRadius: 'var(--r-full)', fontSize: '11px', fontWeight: 600, zIndex: 1, boxShadow: '0 2px 4px rgba(0,0,0,0.15)' }}>
+            {badge}
+          </div>
+        )}
         <div style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(255,255,255,0.7)', padding: '4px 8px', borderRadius: 'var(--r-full)', fontSize: '12px' }}>🤍</div>
       </div>
       <div className="product-card-body">
@@ -49,9 +49,22 @@ export function ProductCard({ product, similarity = null }) {
         </div>
         <span className="product-category">{product.category}</span>
         <span className="product-stock">{product.quantity > 0 ? `${product.quantity} in stock` : 'Out of stock'}</span>
+        {reason && <p style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '2px', marginBottom: '6px' }}>{reason}</p>}
         {similarity !== null && <SimilarityBar percent={similarity} />}
-        <div className="product-footer">
+        <div className="product-footer" style={{ marginTop: 'auto', paddingTop: '8px' }}>
           <span className="product-price">${product.price.toFixed(2)}</span>
+          {onAddToCart && (
+            <button
+              className="btn btn-secondary btn-sm"
+              style={{ padding: '4px 10px', fontSize: '12px' }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onAddToCart(product.id);
+              }}
+            >
+              + Cart
+            </button>
+          )}
         </div>
       </div>
     </div>
